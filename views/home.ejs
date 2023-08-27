@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <h1 id="heading"><%= heading %></h1>
+    <form>
+        <div id="container">
+            <div id="description">
+              <p>DESCRIPTION</p>
+              <input placeholder="Add a task" class="addTask" id="add-task" data-helloWord="asdasdas"required/>
+            </div>
+            <div id="categoryAndDueDate">
+              <div id="chooseOneCatagory">
+                <p>
+                  CATEGORY
+                </p>
+                <input placeholder="Choose Category" class="choose-category" id="category"/>
+              </div>
+              <div id="dueDate">
+                <p>
+                    DUE DATE
+                </p>
+                <input type="date" placeholder="" class="select-due-date" id="due-date" data-helloWord="asdasdas"/>
+              </div>
+            </div>
+            <div id="buttons">
+              <div id="add">
+                <button type="submit">
+                  Add 
+                </button>
+              </div>
+              <div id="delete">
+                <button>
+                  Delete
+                </button>
+              </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="task-list">
+        <span id="total-tasks">Total tasks: <span id="tasks-counter">0</span></span>
+        <hr>
+        <ul id="list">
+          <li>
+            <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
+            <label for="task1">Buy groceries</label>
+          </li>
+        </ul>
+    </div>
+</body>
+</html>

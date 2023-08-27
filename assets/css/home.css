@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', monospace;
+  }
+
+#heading{
+    text-align: center;
+    font-size: 3rem;
+}
+
+
+
+#container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#description{
+    border: 1px solid gray;
+    border-bottom: 0;
+}
+
+#container p{
+    margin: 0px 10px;
+}
+
+#container #add-task{
+    font-size: 20px;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+}
+
+#container #total-tasks{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+#categoryAndDueDate{
+    height: 70.5px;
+    display: flex;
+}
+
+#categoryAndDueDate input{
+    font-size: 20px;
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+    border: 0;
+}
+
+#chooseOneCatagory , #dueDate{
+    width: 50%;
+    border: 1px solid gray;
+}
+
+#buttons{
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+
+#buttons div{
+    width: 50%;
+    height: 50px;
+    border: 1px solid gray;
+}
+
+#buttons button{
+    margin: 10px 22.5%;
+    width:55%;
+    height:30px;
+}
+
+/* Task List */
+
+#task-list{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* List */
+
+#list{
+    font-size:30px;
+    margin: 10px 0px 10px -35px;
+}
+
+#list li{
+    list-style: none;
+}
