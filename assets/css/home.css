@@ -52,6 +52,18 @@
     border: 0;
 }
 
+#categoryAndDueDate select{
+    font-size: 20px;
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+    border: 0;
+}
+
+#categoryAndDueDate #category #home{
+    font-size: 5px;
+}
+
 #chooseOneCatagory , #dueDate{
     width: 50%;
     border: 1px solid gray;
@@ -87,10 +99,34 @@
 /* List */
 
 #list{
-    font-size:30px;
+    font-size:20px;
     margin: 10px 0px 10px -35px;
 }
 
 #list li{
     list-style: none;
+}
+
+#task-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task{
+    display: flex;
+}
+
+#task h5{
+    font-size: 22px;
+    margin: 0 20px;
+}
+
+#task-details #categ{
+    text-align: center;
+    height: auto;
+    width: auto;
+    padding: 6px;
+    margin-right: 10px;
+    border: 1px solid black;
 }

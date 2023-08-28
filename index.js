@@ -12,6 +12,27 @@ app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 
+const task_list =  require('./models/task');
+
+
+app.post('/add_task',async function(req,res){
+
+    try {
+        console.log(req.body);
+        await task_list.push(
+            {
+                description:req.body.description,
+                category:req.body.category,
+                due_date:req.body.due_date
+            }
+        );
+        return res.redirect('/');
+    } catch (error) {
+        console.log("Error in adding contacts in DB",error);
+        return;
+    }
+
+});
 
 app.listen(port,function(error){
     if(error){
@@ -20,3 +41,4 @@ app.listen(port,function(error){
     }
     console.log(`Server is running on Port : ${port}`);
 });
+

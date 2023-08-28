@@ -5,24 +5,31 @@
 </head>
 <body>
     <h1 id="heading"><%= heading %></h1>
-    <form>
+    <form action="/add_task" method="POST">
         <div id="container">
             <div id="description">
               <p>DESCRIPTION</p>
-              <input placeholder="Add a task" class="addTask" id="add-task" data-helloWord="asdasdas"required/>
+              <input placeholder="Add a task" class="addTask" id="add-task" name="description" data-helloWord="asdasdas"required/>
             </div>
             <div id="categoryAndDueDate">
               <div id="chooseOneCatagory">
                 <p>
                   CATEGORY
                 </p>
-                <input placeholder="Choose Category" class="choose-category" id="category"/>
+                <select name="category" id="category">
+                  <option value="home">Home</option>
+                  <option value="personal">Personal</option>
+                  <option value="work">Work</option>
+                  <option value="school">School</option>
+                  <option value="cleaning">Cleaning</option>
+                  <option value="others">Others</option>
+                </select>
               </div>
               <div id="dueDate">
                 <p>
                     DUE DATE
                 </p>
-                <input type="date" placeholder="" class="select-due-date" id="due-date" data-helloWord="asdasdas"/>
+                <input type="date" placeholder="" class="select-due-date" id="due-date" name="due_date" data-helloWord="asdasdas"/>
               </div>
             </div>
             <div id="buttons">
@@ -43,11 +50,24 @@
     <div id="task-list">
         <span id="total-tasks">Total tasks: <span id="tasks-counter">0</span></span>
         <hr>
+
         <ul id="list">
-          <li>
-            <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
-            <label for="task1">Buy groceries</label>
-          </li>
+          <% for(let i of task){ %>
+            <li>
+              <div id="task-details">
+                <div id="task">
+                  <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
+                  <span>
+                    <h5> <%= i.description %> </h5>
+                    <h5> <%= i.due_date %> </h5>
+                  </span>
+                </div>
+                <div  id="categ">
+                  <%= i.category %>
+                </div>
+              </div>
+            </li>
+          <% } %>
         </ul>
     </div>
 </body>

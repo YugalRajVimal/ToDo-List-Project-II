@@ -5,6 +5,8 @@ const homeController = require('../controllers/home_controller');
 
 console.log("Router is loaded");
 
-router.get('/',homeController.home)
+router.get('/',homeController.home);
+
+// router.post('/add_task',homeController.add);
 
 module.exports = router;
