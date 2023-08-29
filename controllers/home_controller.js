@@ -11,7 +11,6 @@ const task_list = require('../models/task');
 module.exports.home = async function(request,response){
 
         try {
-            // const task = task_list.find();
             return response.render('home',{
                 "title" : "ToDo List",
                 "heading":"My ToDo List",
@@ -24,20 +23,20 @@ module.exports.home = async function(request,response){
              
 }
 
-// module.exports.add = function(req,res){
-//     try {
-//         console.log(req.body);
-//         task_list.push(
-//             {
-//                 description:req.body.description,
-//                 category:req.body.category,
-//                 due_date:req.body.due_date
-//             }
-//         );
-//         return res.redirect('/');
-//     } catch (error) {
-//         console.log("Error in adding contacts in DB",error);
-//         return;
-//     }
-// }
+module.exports.add = async function(req,res){
+    try {
+        console.log(req.body);
+        await task_list.push(
+            {
+                description:req.body.description,
+                category:req.body.category,
+                due_date:req.body.due_date
+            }
+        );
+        return res.redirect('/');
+    } catch (error) {
+        console.log("Error in adding contacts in DB",error);
+        return;
+    }
+}
 
