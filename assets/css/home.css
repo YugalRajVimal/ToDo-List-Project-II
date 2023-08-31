@@ -1,132 +1,191 @@
 * {
     box-sizing: border-box;
     font-family: 'Poppins', monospace;
+    color: aliceblue;
   }
 
+body{
+    background-color: rgb(31, 32, 35);
+}
+
+ /* "My ToDo List" Heading */
 #heading{
     text-align: center;
     font-size: 3rem;
 }
 
-
-
+ /* Input Container for new Task */
 #container {
-    width: 50%;
+    width: 500px;
+    border-radius: 8px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    background-color: rgb(41, 42, 47);
 }
+         
+        /* Sub headings - 'description' , 'category' and 'due-date' */
+        #container p{
+            margin: 0px 10px;
+            border-bottom: 1px solid aliceblue;
+        }
 
-#description{
-    border: 1px solid gray;
-    border-bottom: 0;
-}
+        /* Description input */
+        #description{
+            border: 1px solid rgb(41, 42, 47);
+            border-radius: 8px;
+            /* border-bottom: 1px solid aliceblue; */
+        }
 
-#container p{
-    margin: 0px 10px;
-}
+        /* description-input */
+        #container #add-task{
+            font-size: 20px;
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            background-color: rgb(41, 42, 47);
+        }
 
-#container #add-task{
-    font-size: 20px;
-    height: 50px;
-    width: 100%;
-    padding: 10px;
-    border: 0;
-}
+        /* total number of Tasks */
+        #total-tasks{
+            margin-left: 10px;
+            margin-top: 5px;
+        }
 
-#container #total-tasks{
-    margin-left: 10px;
-    margin-top: 5px;
-}
+        /* Category and Due date section  */
+        #categoryAndDueDate{
+            height: 70.5px;
+            display: flex;
+        }
 
-#categoryAndDueDate{
-    height: 70.5px;
-    display: flex;
-}
+            #categoryAndDueDate select{
+                background-color: rgb(41, 42, 47);
+            }
 
-#categoryAndDueDate input{
-    font-size: 20px;
-    padding: 10px;
-    height: 50px;
-    width: 100%;
-    border: 0;
-}
+            #categoryAndDueDate input{
+                font-size: 20px;
+                padding: 10px;
+                height: 50px;
+                width: 100%;
+                border: 0;
+                background-color: rgb(41, 42, 47);
+            }
 
-#categoryAndDueDate select{
-    font-size: 20px;
-    padding: 10px;
-    height: 50px;
-    width: 100%;
-    border: 0;
-}
+            #categoryAndDueDate select{
+                font-size: 20px;
+                padding: 10px;
+                height: 50px;
+                width: 100%;
+                border: 0;
+            }
 
-#categoryAndDueDate #category #home{
-    font-size: 5px;
-}
+            #categoryAndDueDate #category #home{
+                font-size: 5px;
+            }
 
-#chooseOneCatagory , #dueDate{
-    width: 50%;
-    border: 1px solid gray;
-}
+            #chooseOneCatagory , #dueDate{
+                width: 50%;
+                border: 1px solid rgb(41, 42, 47);
+            }
 
-#buttons{
-    width: 100%;
-    height: 50px;
-    display: flex;
-}
+            #dueDate{
+                color-scheme: dark;
+                border-left: 1px solid aliceblue;
+            }
 
-#buttons div{
-    width: 50%;
-    height: 50px;
-    border: 1px solid gray;
-}
+        /* Add Task Button  */
+        #buttons{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+        }
 
-#buttons button{
-    margin: 10px 22.5%;
-    width:55%;
-    height:30px;
-}
+            #buttons div{
+                width: 50%;
+                height: 50px;
+                /* border: 1px solid gray; */
+            }
 
+            #buttons button{
+                margin: 10px 22.5%;
+                width:55%;
+                height:30px;
+                border: 0.5px solid aliceblue;
+                border-radius: 8px;
+                background-color: rgb(31, 32, 35);
+            }
 /* Task List */
 
 #task-list{
-    width: 50%;
+    width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    border-radius: 7px;
+    background-color: rgb(41, 42, 47);
 }
 
-/* List */
+        /* List of tasks */
+        #list{
+            font-size:20px;
+            margin: -20px 0px 10px -35px;
+        }
 
-#list{
-    font-size:20px;
-    margin: 10px 0px 10px -35px;
-}
+        /* task */
+        #list li{
+            list-style: none;
+        }
 
-#list li{
-    list-style: none;
-}
+        /* Task details - description, due date and category */
+        #task-details{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-#task-details{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        /* Strikethrough the task details when checkbox is checked  */
+        input[type=checkbox]:checked + label.strikethrough{
+            text-decoration: line-through;
+          }
 
-#task{
-    display: flex;
-}
+        /* Contain Checkbox, description and due date  */
+        #col1{
+            display: flex;
+        }
+            /* description */
+            #col1 h5{
+                font-size: 22px;
+                /* font-weight: 600; */
+                margin: 0 20px;
+            }
 
-#task h5{
-    font-size: 22px;
-    margin: 0 20px;
-}
+            /* due date */
+            #col1 h6{
+                margin: 0 20px;
+            }
 
-#task-details #categ{
-    text-align: center;
-    height: auto;
-    width: auto;
-    padding: 6px;
-    margin-right: 10px;
-    border: 1px solid black;
-}
+        
+        /* Contain Category and delete task button  */
+         #col2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Delete Logo  */
+        #col2 i{
+            color: aliceblue;
+            margin:0 10px
+        }
+
+        /* Category */
+        #task-details #categ{
+            text-align: center;
+            height: auto;
+            width: auto;
+            padding: 6px;
+            margin-right: 10px;
+            border: 1px solid aliceblue;
+        }

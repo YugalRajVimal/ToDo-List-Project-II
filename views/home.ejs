@@ -1,74 +1,122 @@
 <html>
-<head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/css/home.css">
-</head>
-<body>
-    <h1 id="heading"><%= heading %></h1>
-    <form action="/add_task" method="POST">
-        <div id="container">
-            <div id="description">
-              <p>DESCRIPTION</p>
-              <input placeholder="Add a task" class="addTask" id="add-task" name="description" data-helloWord="asdasdas"required/>
+    <head>
+        <title> <%= title %> </title>
+        <script src="https://kit.fontawesome.com/0b8daf5da8.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <!-- Heading  -->
+        <h1 id="heading"><%= heading %></h1>
+
+        <!-- Input Section for new Task -->
+        <form action="/add_task" method="POST">
+            <div id="container">
+
+                <!-- Input of Description of new Task -->
+                <div id="description">
+                  <p>DESCRIPTION</p>
+                  <input placeholder="Add a task" class="addTask" id="add-task" name="description" data-helloWord="asdasdas"required/>
+                </div>
+
+                <!-- Input of Category and Due Date for new Task -->
+                <div id="categoryAndDueDate">
+
+                  <!-- Category  -->
+                  <div id="chooseOneCatagory">
+                    <p>
+                      CATEGORY
+                    </p>
+
+                    <!-- Multiple Categories  -->
+                    <select name="category" id="category">
+                      <option value="home">Home</option>
+                      <option value="personal">Personal</option>
+                      <option value="work">Work</option>
+                      <option value="school">School</option>
+                      <option value="cleaning">Cleaning</option>
+                      <option value="others">Others</option>
+                    </select>
+                  </div>
+
+                  <!-- Due Date -->
+                  <div id="dueDate">
+                    <p>
+                        DUE DATE
+                    </p>
+                    <input type="date" placeholder="" class="select-due-date" id="due-date" name="due_date" data-helloWord="asdasdas"/>
+                  </div>
+
+                </div>
+
+                <!-- Add Button for adding tasks  -->
+                <div id="buttons">
+                  <div id="add">
+                    <button type="submit">
+                      Add 
+                    </button>
+                  </div>
+                </div>
+
             </div>
-            <div id="categoryAndDueDate">
-              <div id="chooseOneCatagory">
-                <p>
-                  CATEGORY
-                </p>
-                <select name="category" id="category">
-                  <option value="home">Home</option>
-                  <option value="personal">Personal</option>
-                  <option value="work">Work</option>
-                  <option value="school">School</option>
-                  <option value="cleaning">Cleaning</option>
-                  <option value="others">Others</option>
-                </select>
-              </div>
-              <div id="dueDate">
-                <p>
-                    DUE DATE
-                </p>
-                <input type="date" placeholder="" class="select-due-date" id="due-date" name="due_date" data-helloWord="asdasdas"/>
-              </div>
-            </div>
-            <div id="buttons">
-              <div id="add">
-                <button type="submit">
-                  Add 
-                </button>
-              </div>
-              <div id="delete">
-                <button>
-                  Delete
-                </button>
-              </div>
-            </div>
+        </form>
+
+        <div id="task-list">
+
+            <!-- Total number of Tasks  -->
+            <span id="total-tasks">Total tasks: <span id="tasks-counter"><%= task_list_size %></span></span>
+            <hr>
+
+            <!-- Rendered task list  -->
+            <ul id="list">
+
+              <% for(let i of task){ %>
+                <li>
+                  <hr color="aliceblue" size="1">
+
+                  <!-- Task details - description, due date and category  -->
+                  <div id="task-details">
+
+                    <div id="col1">
+
+                      <!-- Checkbox  -->
+                      <input type="checkbox" id="task" data-id="12" class="custom-checkbox">
+                      
+                      <label class="strikethrough">
+                        <span>
+
+                          <!-- description -->
+                          <h5> <%= i.description %> </h5>
+                          <!-- due date -->
+                          <h6> <%= i.due_date %> </h6>
+
+                        </span>
+                      </label>
+
+                    </div>
+
+                    <!-- Contain Category and delete task button -->
+                    <div id="col2">
+
+                      <!-- Category  -->
+                      <div  id="categ">
+                        <%= i.category %>
+                      </div>
+
+                      <div id="delete-task">
+                        <a href="/delete_task/?id=<%= i._id %>">
+                          <!-- Delete Logo  -->
+                          <i class="fa-solid fa-trash"></i>
+                        </a>
+                      </div>
+                      
+                    </div>
+
+                  </div>
+
+                </li>
+              <% } %>
+              
+            </ul>
         </div>
-    </form>
-
-    <div id="task-list">
-        <span id="total-tasks">Total tasks: <span id="tasks-counter">0</span></span>
-        <hr>
-
-        <ul id="list">
-          <% for(let i of task){ %>
-            <li>
-              <div id="task-details">
-                <div id="task">
-                  <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
-                  <span>
-                    <h5> <%= i.description %> </h5>
-                    <h5> <%= i.due_date %> </h5>
-                  </span>
-                </div>
-                <div  id="categ">
-                  <%= i.category %>
-                </div>
-              </div>
-            </li>
-          <% } %>
-        </ul>
-    </div>
-</body>
+    </body>
 </html>

@@ -1,45 +1,20 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var task_list = [
-    {
-        description:"abc",
-        category:"home",
-        due_date:'2023-08-29'
+//Database Schema for Tasks
+const taskSchema = new mongoose.Schema({
+    description: {
+        type: String,
+        required: true,
     },
-    {
-        description:"def",
-        category:"personal",
-        due_date:'2022-07-20'
+    category: {
+        type: String
     },
-    {
-        description:"ghi",
-        category:"home",
-        due_date:'2023-04-01'
-    },
-    {
-        description:"jkl",
-        category:"others",
-        due_date:'2023-08-23'
+    due_date:{
+        type: String
     }
-]
+});
 
-// const taskSchema = new mongoose.Schema({
+const task_list = mongoose.model('Task', taskSchema);
 
-//     name: {
-//         description: String,
-//         required: true,
-//         due_date:String
-//     },
-//     category: {
-//         type: String
-//     },
-//     due_date:{
-//         type: String
-//     }
-
-// })
-
-
-// const Task = mongoose.model('Task', contactSchema);
-
+// Exporting the Task List 
 module.exports = task_list;
